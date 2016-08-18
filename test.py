@@ -10,24 +10,24 @@
 ###############################################################################
 # Write f01 that prints "Hello World!" and calls f02. (three lines)
 def f01():
-
+	print("Hello World!")
     f02()
 
 
 ###############################################################################
 # Write f02 that sets the variables x, y, and z equal to the words
 # necessary to have the f03 print "i love python!" (five lines)
-
-
-
-
+def f02():
+	x = 'i'
+	y = 'love'
+	z = 'python!'
     f03(x, y, z)  # Last line in f2()
 
 
 ###############################################################################
 # Finish f03 (replace the ????).
 def f03(*words):
-    truth = " ".????(words)  # This is broken.
+    truth = " ".join(words)  # This is broken.
     truth_emphasized = truth + "!"
     print(truth_emphasized)
     f04(truth)  # Last line in f03()
@@ -37,7 +37,7 @@ def f03(*words):
 # Write f04 that prints truth backwards (edit one line only)
 # Ex. f4("Littlest Bear") prints "raeB tselttiL"
 def f04(string):
-
+	print(string[::-1])
     f05(string)  # Last line in f04()
 
 
@@ -51,11 +51,10 @@ def f04(string):
 #   Info
 #    Info
 def f05(word):
-
-
-
-
-
+	idx = 0
+	for char in word:
+		print(' '*idx + word)
+		idx += 1
     f06("South Hall", "Python Rocks!")  # Last line in f05()
 
 
@@ -70,13 +69,19 @@ def f05(word):
 # Ex. f06("short_string", "longer_string")
 # 'longer_string' is longer than 'short_string' by 1 chars
 # 'short_string' has only 92.31% the number of chars of longer_string
-def f06(string1, string2):
+def f06(string1, string2)
+	length1 = len(string1)
+	length2 = len(string2)
+	ratio1 = format(float(length1)/float(length2)*100, '0.2f') 
+	ratio2 = format(float(length2)/float(length1)*100, '0.2f') #if string 1 > string 2
+	difference = abs(length1 - length2)
 
-
-
-
-
-
+	if length1 > length2:
+		print("{} is longer than {} by {} chars".format(string1, string2, difference))
+		print("{} has only {}% the number of chars of {}".format(string2, ratio2, string1))
+	elif length1 < length2:
+		print("{} is longer than {} by {} chars".format(string2, string1, difference))
+		print("{} has only {}% the number of chars of {}".format(string1, ratio1, string2))
 
     various_solutions()  # Last line in f06()
 
@@ -113,12 +118,16 @@ def various_solutions():
 
 ###############################################################################
 def f07():
-    ...
+
 
 
 ###############################################################################
 def f08():
-    ...
+    total = 0
+    for num in range(1, 501):
+    	if num % 3 == 0 or num % 5 == 0:
+    		total += num
+    return total
 
 
 ###############################################################################
